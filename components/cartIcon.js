@@ -1,9 +1,13 @@
 import {Text, TouchableOpacity, View} from "react-native";
 import {themeColors} from "../theme";
 import {useNavigation} from "@react-navigation/native";
+import {useSelector} from "react-redux";
+import {selectCartItems} from "../slices/cartSlice";
 
 export function CartIcon() {
+    const cartItems = useSelector(selectCartItems);
     let navigation = useNavigation();
+    if(cartItems.length === 0) return;
     return (
         <View className={"absolute bottom-5 w-full z-50"}>
             <TouchableOpacity

@@ -5,9 +5,11 @@ import {useNavigation} from "@react-navigation/native";
 import {themeColors} from "../theme";
 import {StatusBar} from "expo-status-bar";
 import * as Icon from "react-native-feather";
+import {useSelector} from "react-redux";
+import {selectRestaurant} from "../slices/restaurantSlice";
 
 export function DeliveryScreen() {
-    let resturant = featured.restaurants[0];
+    let resturant = useSelector(selectRestaurant);
     let navigation = useNavigation();
     return (
         <View className={"flex-1"}>

@@ -3,8 +3,11 @@ import {themeColors} from "../theme";
 import * as Icon from "react-native-feather";
 import {useNavigation} from "@react-navigation/native";
 import {featured} from "../constants";
+import {useSelector} from "react-redux";
+import {selectRestaurant} from "../slices/restaurantSlice";
 
 export default function CartScreen() {
+    useSelector(selectRestaurant)
     let navigation = useNavigation();
     let restaurant = featured.restaurants[0];
     return (
